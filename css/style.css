@@ -42,6 +42,7 @@ body {
   display: grid;
   gap: 1rem;
   /* border: 1px solid red; */
+  transform: translateX(-2.5rem);
 }
 .view .controls {
   display: grid;
@@ -377,5 +378,35 @@ td {
 
 
 @media (max-width: 800px) {
-
+  .view {
+    transform: translateX(0);
+  }
+  main .side-controls {
+    position: relative;
+    margin: auto;
+    /* grid-column: 1/span3; */
+    grid-column: 1 / span 3;
+  }
+  main .side-controls--container {
+    margin-left: 0;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5rem;
+    margin-top: 0.5rem;
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    font-size: 14px
+  }
+}
+@media (max-width: 500px) {
+  :root {
+    font-size: 12px
+  }
+}
+@media (max-width: 400px) {
+  :root {
+    font-size: 10px
+  }
 }
