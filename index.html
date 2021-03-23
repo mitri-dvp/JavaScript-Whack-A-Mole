@@ -9,56 +9,97 @@
 </head>
 
 <body>
-    <div>
-        <h1>Wack-A-Mole</h1>
+    <div class="container">
+        <div class="view">
+            <div class="title">
+                <h1>Wack-A-Mole</h1>
+            </div>
+
+            <main>
+                <div class="hole">
+                    <img src="css/hole.png">
+                    <div class="mole"></div>
+                </div>
+                <div class="hole">
+                    <img src="css/hole.png">
+                    <div class="mole"></div>
+                </div>
+                <div class="hole">
+                    <img src="css/hole.png">
+                    <div class="mole"></div>
+                </div>
+                <div class="hole">
+                    <img src="css/hole.png">
+                    <div class="mole"></div>
+                </div>
+                <div class="hole">
+                    <img src="css/hole.png">
+                    <div class="mole"></div>
+                </div>
+                <div class="hole">
+                    <img src="css/hole.png">
+                    <div class="mole"></div>
+                </div>
+                <div class="hole">
+                    <img src="css/hole.png">
+                    <div class="mole"></div>
+                </div>
+                <div class="hole">
+                    <img src="css/hole.png">
+                    <div class="mole"></div>
+                </div>
+                <div class="hole">
+                    <img src="css/hole.png">
+                    <div class="mole"></div>
+                </div>
+                <span class="side-controls">
+                    <div class="side-controls--container">
+                        <!-- <div class="settings">
+                            <img src="css/cog.svg" alt="⚙">
+                        </div> -->
+                        <div class="velocity-level">
+                            <img src="css/velocity-mole.svg" alt="⚙">
+                            <span class="normal">2</span>
+                        </div>
+                        <div class="time-level">
+                            <img src="css/timer.svg" alt="⚙">
+                            <span class="normal">2</span>
+                        </div>
+                        <div class="volume-level">
+                            <img src="css/volume.svg" alt="⚙">
+                            <span class="hard"></span>
+                        </div>
+                    </div>
+                </span>
+            </main>
+            <div class="controls">
+                <div class="time">
+                    <p>Time</p>
+                    <span>-</span>
+                </div>
+                <div class="score">
+                    <p>Score</p>
+                    <span>-</span>
+                </div>
+                <div class="start">START</div>
+            </div>
+        </div>
     </div>
-    <main>
-        <div class="hole">
-            <img src="css/hole.png">
-            <div class="mole"></div>
+
+        <div class="enterName">
+            <h2>GAME OVER</h2>
+            <h3>Enter your name!</h3><br>
+            <input type="text">
         </div>
-        <div class="hole">
-            <img src="css/hole.png">
-            <div class="mole"></div>
+    
+        <div class="scoreboard">
+            <table class="scores"></table>
         </div>
-        <div class="hole">
-            <img src="css/hole.png">
-            <div class="mole"></div>
-        </div>
-        <div class="hole">
-            <img src="css/hole.png">
-            <div class="mole"></div>
-        </div>
-        <div class="hole">
-            <img src="css/hole.png">
-            <div class="mole"></div>
-        </div>
-        <div class="hole">
-            <img src="css/hole.png">
-            <div class="mole"></div>
-        </div>
-    </main>
-    <div class="hud">
-        <h1 class="counter">0</h1>
-        <h1 class="timer">Time: 10</h1>
-    </div>
-    <div class="enterName">
-        <h2>GAME OVER</h2>
-        <h3>Enter your name!</h3><br>
-        <input type="text">
-    </div>
-    <div class="scoreboard">
-        <table class="scores">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
+        <table>
+            <tbody>
+            </tbody>
         </table>
-        <button class="score-button">X</button>
-    </div>
+
     <script src="js/script.js"></script>
 </body>
 

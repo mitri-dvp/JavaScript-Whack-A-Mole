@@ -1,65 +1,171 @@
+@font-face {font-family: "Titan One";src: url("./TitanOne-Regular.ttf")}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  user-select: none;
-}
-body {
-  background: url(background.jpg);
-  display: flex;
-  flex-wrap: wrap;
-}
-body div {
-  width: 100%;
-}
-h2 {
-  color: #fff;
-  text-shadow: 1px 1px 0px #000;
-  font-size: 50px;
-  font-weight: 400;
-  text-align: center;
-  padding: 10px;
-  border-radius: 5px;
-}
-h3 {
-  color: #fff;
-  text-shadow: 1px 1px 0px #000;
-  font-size: 2em;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 5px;
+  font-family: 'Titan One', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h1 {
+/* .ui {
+  position: absolute;
+  display: none;
+} */
+
+body {
   position: relative;
-  background: #00000022;
-  color: #fff;
-  text-shadow: 1px 1px 0px #000;
-  font-size: 50px;
-  font-weight: 400;
-  width: fit-content;
+  background: url('background.jpg');
+  min-height: 100vh;
+  max-height: 100vh;
+  display: grid;
+  align-items: center;
+  align-content: center;
+  overflow: hidden;
+}
+.container {
   margin: auto;
-  height: fit-content;
+  width: min-content;
+  display: grid;
+  /* gap: 2rem; */
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  /* border: 1px solid aqua; */
+}
+.side {
+  padding: 1rem;
+  display: block;
+  /* border: 1px solid aqua; */
+}
+.view * {
+  user-select: none;
+}
+.view {
+  display: grid;
+  gap: 1rem;
+  /* border: 1px solid red; */
+}
+.view .controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+.view .start {
+  cursor: pointer;
+}
+.view .start:active {
+  transform: scale(0.95);
+}
+.view .controls > div {
+  color: #fff;
+  text-shadow: 0px 0px 4px #000;
+  font-size: 2rem;
+  font-weight: 400;
   text-align: center;
   padding: 10px;
   border-radius: 5px;
-  margin-top: 20px;
+  background-color: #00000055;
+  border: 3px solid #111;
+}
+
+.view .controls .time, 
+.view .controls .score {
+  position: relative;
+}
+.view .controls .time p, 
+.view .controls .score p {
+  position: absolute;
+  left: 50%;
+  top: -30%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+}
+.title h1 {
+  /* background: #00000022; */
+  color: #fff;
+  text-shadow: 0 0 4px #000;
+  font-size: 3rem;
+  font-weight: 100;
+  text-align: center;
 }
 
 main {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.25rem;
+}
+main > div {
+  width: 10rem;
+  height: 10rem;
+}
+
+main .side-controls {
+  position: absolute;
+  right: 0;
+  width: 0;
+  transform: translateX(100%);
+}
+main .side-controls--container {
+  margin-left: 1rem; 
+  padding: .75rem;
+  width: max-content;
+  height: max-content;
+  background-color: #00000055;
+  border: 3px solid #111;
+  display: grid;
+  gap: 1rem;
+}
+main .side-controls--container div {position: relative;}
+main .side-controls--container .settings {
+  height: 2.5rem;
+  width: 2.5rem;
+  -webkit-filter: drop-shadow(1px 1px 0px 1px #00000020);
+  filter: drop-shadow(1px 1px 0px 1px #00000020);
   margin: auto;
-  width: 800px;
-  height: 533px;
-  display: flex;
-  flex-wrap: wrap;
 }
-main > * {
-  margin: 20px;
-  flex: 1;
-  flex-basis: calc(100% / 4);
-  border-radius: 50px;
+main .side-controls--container .velocity-level {
+  height: 2.5rem;
+  width: 2.5rem;
+  -webkit-filter: drop-shadow(1px 1px 0px 1px #00000020);
+  filter: drop-shadow(1px 1px 0px 1px #00000020);
+  margin: auto;
 }
+main .side-controls--container .time-level {
+  height: 2.5rem;
+  width: 2.5rem;
+  -webkit-filter: drop-shadow(1px 1px 0px 1px #00000020);
+  filter: drop-shadow(1px 1px 0px 1px #00000020);
+  margin: auto;
+}
+main .side-controls--container .volume-level {
+  height: 2.5rem;
+  width: 2.5rem;
+  -webkit-filter: drop-shadow(1px 1px 0px 1px #00000020);
+  filter: drop-shadow(1px 1px 0px 1px #00000020);
+  margin: auto;
+}
+main .side-controls--container img {
+  display: block;
+  width: inherit;
+  height: inherit;
+  cursor: pointer;
+  user-select: none;
+}
+main .side-controls--container div:active {
+  transform: scale(0.90);
+}
+main .side-controls--container span {
+  color: #4cd137;
+  position: absolute;
+  text-shadow: 2px 2px 1px #000;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  font-size: 1.25rem;
+}
+main .side-controls--container span.easy {color: #00a8ff;}
+main .side-controls--container span.normal {color: #4cd137;}
+main .side-controls--container span.hard {color: #e84118;}
+main .side-controls--container span.none {display: none;}
 
 .active {
   cursor: pointer;
@@ -70,7 +176,8 @@ main > * {
 
 .hole {
   background: #00000055;
-  border: 5px solid #00000088;
+  border-radius: 5px;
+  border: 3px solid #111;
   position: relative;
   overflow: hidden;
 }
@@ -86,11 +193,10 @@ main > * {
   transition: all 0.5s;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
   top: 100%;
-  cursor: pointer;
 }
-.up .mole {
-  top: 0%;
-}
+.up {cursor: pointer;}
+.up .mole {top: 10%;}
+
 img {
   position: absolute;
   bottom: 0;
@@ -108,7 +214,6 @@ img {
 .timer {
   background: #00000055;
   border: 5px solid #00000088;
-  border-radius: 100px;
   padding: 0;
   width: 200px;
 }
@@ -119,6 +224,7 @@ img {
 .enterName {
   position: absolute;
   display: flex;
+  gap: 0.5rem;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -130,8 +236,15 @@ img {
   opacity: 0;
 }
 .enterName h2 {
+  font-weight: 100;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: #f33;
+  padding: 0;
+}
+.enterName h3 {
   font-weight: 500;
-  color: rgb(255, 37, 37);
+  color: #fff;
   padding: 0;
 }
 .enterName input[type='text'] {
@@ -152,11 +265,11 @@ img {
   z-index: 99;
   background: #000000cc;
   color: #fff;
-  padding: 5% 10%;
+  padding: 5rem;
   transition: opacity 1s;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
   display: none;
-  opacity: 0;
+  width: 100%;
 }
 tbody:first-of-type td:first-child {
   position: relative;
@@ -167,13 +280,12 @@ tbody:first-of-type td:first-child::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 1.2em;
-  width: 1.2em;
+  height: 2rem;
+  width: 2rem;
   background-color: #ffd90020;
   content: '';
   border-radius: 50%;
   border: 2px solid #ffa500;
-  box-shadow: 1px 1px 0px 1px #00000020;
 }
 tbody:nth-of-type(2) td:first-child {
   position: relative;
@@ -184,8 +296,8 @@ tbody:nth-of-type(2) td:first-child::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 1.2em;
-  width: 1.2em;
+  height: 2rem;
+  width: 2rem;
   background-color: #cccccc20;
   content: '';
   border-radius: 50%;
@@ -201,8 +313,8 @@ tbody:nth-of-type(3) td:first-child::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 1.2em;
-  width: 1.2em;
+  height: 2rem;
+  width: 2rem;
   background-color: #a52a2a20;
   content: '';
   border-radius: 50%;
@@ -211,19 +323,21 @@ tbody:nth-of-type(3) td:first-child::before {
 }
 .score-button {
   color: #fff;
-  font-weight: 900;
-  border: 1px solid red;
-  font-size: 1em;
-  background-color: rgb(255, 40, 40);
+  border: 0;
+  font-size: 1.25rem;
+  font-weight: lighter;
+  background-color: #f33;
   position: absolute;
-  top: 10%;
-  right: 20%;
-  height: 2em;
-  width: 2em;
+  top: 0.2rem;
+  right: 0;
+  transform: translateX(110%);
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
   outline: none;
 }
 .score-button:active {
-  background-color: rgb(194, 30, 30);
+  background-color: #c21e1e;
 }
 .block {
   display: block;
@@ -237,32 +351,31 @@ tbody:nth-of-type(3) td:first-child::before {
 
 table {
   margin: auto;
+  position: relative;
 }
 thead {
-  font-size: 2em;
-  background-color: rgb(255, 40, 40);
+  background-color: #f33;
+  font-size: 2rem;
 }
 tbody {
   text-align: center;
   color: #333;
-  font-size: 2em;
+  font-size: 2rem;
   background-color: rgb(255, 255, 255);
 }
 th {
   font-weight: 400;
-  padding: 0.2em 1em;
-  border: 1px solid red;
+  /* padding: 0.2rem 1em; */
+  padding: 0.75rem 2rem;
 }
 td {
+  font-size: 1.5rem;
   font-weight: 400;
-  padding: 0.2em 1em;
+  padding: 0.75rem;
   border: 1px solid #bbb;
 }
 
-@media (max-width: 780px) {
-  .score-button{
-    position: fixed;
-    top: 5%;
-    right: 1em;
-  }
+
+@media (max-width: 800px) {
+
 }
