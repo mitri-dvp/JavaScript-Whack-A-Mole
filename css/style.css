@@ -115,7 +115,7 @@ main .side-controls--container {
   display: grid;
   gap: 1rem;
 }
-main .side-controls--container div {position: relative;}
+main .side-controls--container div {position: relative;cursor: pointer;}
 main .side-controls--container .settings {
   height: 2.5rem;
   width: 2.5rem;
@@ -148,7 +148,6 @@ main .side-controls--container img {
   display: block;
   width: inherit;
   height: inherit;
-  cursor: pointer;
   user-select: none;
 }
 main .side-controls--container div:active {

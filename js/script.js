@@ -1,8 +1,11 @@
 // Elements
-const bonk = new Audio('./css/bonk.mp3');
-const pam = new Audio('./css/pam.mp3');
-const pum = new Audio('./css/pum.mp3');
-const ding = new Audio('./css/ding.mp3');
+const start_sfx = new Audio('./css/start.mp3');
+const hit_sfx = new Audio('./css/hit.mp3');
+const hit2_sfx = new Audio('./css/hit2.mp3');
+const peep_sfx = new Audio('./css/peep.mp3');
+const ding_sfx = new Audio('./css/ding.mp3');
+const pam_sfx = new Audio('./css/pam.mp3');
+const pum_sfx = new Audio('./css/pum.mp3');
 const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.moles');
 const counter = document.querySelector('.score span');
@@ -51,12 +54,20 @@ function up(e) {
     if(volume_level) {
       const x = Math.round(Math.random() * (2 - 1) + 1);
       if(x === 1) {
-        pam.currentTime = 0;
-        pam.play();
+        hit_sfx.currentTime = 0;
+        hit_sfx.play();
       } else {
-        pum.currentTime = 0;
-        pum.play();
+        hit2_sfx.currentTime = 0.1;
+        hit2_sfx.play();
       }
+      // const x = Math.round(Math.random() * (2 - 1) + 1);
+      // if(x === 1) {
+      //   pam_sfx.currentTime = 0;
+      //   pam_sfx.play();
+      // } else {
+      //   pum_sfx.currentTime = 0;
+      //   pum_sfx.play();
+      // }
     }
     count++;
     counter.textContent = `${count}`;
@@ -66,6 +77,10 @@ function peep() {
   const randomTime = getRandomTime();
   const hole = randomHole(holes);
   hole.classList.add('up');
+  if(volume_level) {
+    peep_sfx.currentTime = 0;
+    peep_sfx.play();
+  }
   setTimeout(() => {
     if (!timeUp) peep();
     hole.classList.remove('up');
@@ -85,6 +100,10 @@ function randomHole(holes) {
 
 function startTime() {
   if (started === false) {
+    if(volume_level) {
+      start_sfx.currentTime = 0.125;
+      start_sfx.play();
+    }
     counter.textContent = '0';
     count = 0;
     timeUp = false;
@@ -102,8 +121,8 @@ function startTime() {
         timeUp = true;
         started = false;
         if(volume_level) {
-          ding.currentTime = 0
-          ding.play()
+          ding_sfx.currentTime = 0
+          ding_sfx.play()
         }
         setTimeout(() => {
           scoreboardUpdater();
@@ -189,6 +208,10 @@ function getTime() {
 function changevelocityLevel() {
   const element = velocityLevelDOM.children[1]
   const currentLevel = +element.textContent
+  if(volume_level) {
+    start_sfx.currentTime = 0.125;
+    start_sfx.play();
+  }
   switch (currentLevel) {
     case 1:
       element.classList.remove('easy')
@@ -216,28 +239,32 @@ function changevelocityLevel() {
 }
 function changetimeLevel() {
   const element = timeLevelDOM.children[1]
-  const currentLevel = +element.textContent
+  const currentLevel = element.textContent
+  if(volume_level) {
+    start_sfx.currentTime = 0.125;
+    start_sfx.play();
+  }
   switch (currentLevel) {
-    case 1:
+    case '30':
       element.classList.remove('easy')
       element.classList.add('normal')
-      element.textContent = '2'
+      element.textContent = '10'
       time_level = 1
       break;
-    case 2:
+    case '10':
       element.classList.remove('normal')
       element.classList.add('hard')
-      element.textContent = '3'
+      element.textContent = '5'
       time_level = 2
       break;
-    case 3:
+    case '5':
       element.classList.remove('hard')
       element.classList.add('easy')
-      element.textContent = '1'
+      element.textContent = '30'
       time_level = 0
       break;
     default:
-      element.textContent = '2'
+      element.textContent = '10'
       time_level = 1
       break;
   }
@@ -245,7 +272,10 @@ function changetimeLevel() {
 function changevolumeLevel() {
   const element = volumeLevelDOM.children[1]
   const currentLevel = element.textContent
-  console.log(element)
+  if(volume_level) {
+    start_sfx.currentTime = 0.125;
+    start_sfx.play();
+  }
   switch (currentLevel) {
     case 'X':
       element.textContent = ''
