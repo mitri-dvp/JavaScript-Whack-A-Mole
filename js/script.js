@@ -249,11 +249,11 @@ function changevolumeLevel() {
   switch (currentLevel) {
     case 'X':
       element.textContent = ''
-      volume_level = 0
-      break;
-    default:
-      element.textContent = 'X'
       volume_level = 1
+      break;
+      default:
+      element.textContent = 'X'
+      volume_level = 0
       break;
   }
 }
