@@ -1,8 +1,8 @@
 // Elements
-const bonk = new Audio('/css/bonk.mp3');
-const pam = new Audio('/css/pam.mp3');
-const pum = new Audio('/css/pum.mp3');
-const ding = new Audio('/css/ding.mp3');
+const bonk = new Audio('./css/bonk.mp3');
+const pam = new Audio('./css/pam.mp3');
+const pum = new Audio('./css/pum.mp3');
+const ding = new Audio('./css/ding.mp3');
 const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.moles');
 const counter = document.querySelector('.score span');
