@@ -272,10 +272,6 @@ function changetimeLevel() {
 function changevolumeLevel() {
   const element = volumeLevelDOM.children[1]
   const currentLevel = element.textContent
-  if(volume_level) {
-    start_sfx.currentTime = 0.125;
-    start_sfx.play();
-  }
   switch (currentLevel) {
     case 'X':
       element.textContent = ''
@@ -285,5 +281,9 @@ function changevolumeLevel() {
       element.textContent = 'X'
       volume_level = 0
       break;
+  }
+  if(volume_level) {
+    start_sfx.currentTime = 0.125;
+    start_sfx.play();
   }
 }

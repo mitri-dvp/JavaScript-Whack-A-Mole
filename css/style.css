@@ -44,6 +44,9 @@ body {
   /* border: 1px solid red; */
   transform: translateX(-2.5rem);
 }
+.view main > div {
+  cursor: url('hammer2.png'), auto;	
+}
 .view .controls {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -194,7 +197,6 @@ main .side-controls--container span.none {display: none;}
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
   top: 100%;
 }
-.up {cursor: pointer;}
 .up .mole {top: 10%;}
 
 img {
