@@ -35,6 +35,9 @@ body {
   display: block;
   /* border: 1px solid aqua; */
 }
+.retry {
+  cursor: pointer;
+}
 .view * {
   user-select: none;
 }

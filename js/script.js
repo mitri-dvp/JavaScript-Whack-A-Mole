@@ -10,6 +10,7 @@ const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.moles');
 const counter = document.querySelector('.score span');
 const start = document.querySelector('.start');
+const retry = document.querySelector('.retry');
 const timer = document.querySelector('.time span');
 const velocityLevelDOM = document.querySelector('.velocity-level');
 const timeLevelDOM = document.querySelector('.time-level');
@@ -38,6 +39,7 @@ const n = 0;
 
 // Event Listeners
 start.addEventListener('click', startTime)
+retry.addEventListener('click', goMenu)
 holes.forEach(hole => hole.addEventListener('mousedown', up));
 holes.forEach(hole => hole.addEventListener('touchstart', up));
 nameInput.addEventListener('keyup', enterName);
@@ -178,6 +180,8 @@ function enterName(e) {
 function goMenu() {
   scoreboard.classList.remove('block');
   scoreboard.classList.remove('opacity');
+  nameContainer.classList.remove('flex');
+  nameContainer.classList.remove('opacity');
 }
 
 function getRandomTime() {
