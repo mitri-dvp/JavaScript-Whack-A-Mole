@@ -324,6 +324,9 @@ main .side-controls--container span.none {display: none;}
   display: none;
   opacity: 0;
 }
+.enterName * {
+  font-family: 'Titan One', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .enterName h2 {
   font-weight: 100;
   font-size: 2rem;
@@ -360,6 +363,10 @@ main .side-controls--container span.none {display: none;}
   display: none;
   width: 100%;
 }
+.scoreboard * {
+  font-family: 'Titan One', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 tbody:first-of-type td:first-child {
   position: relative;
   color: #ffa500;
