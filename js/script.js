@@ -37,15 +37,46 @@ let finalScore;
 let name;
 const n = 0;
 
+// Modal
+const modal = document.querySelector('.modal');
+
+
+modal.addEventListener('click', e => {
+  e.preventDefault();
+  const selection = e.target.className;
+  switch (selection) {
+    case 'e':
+      changeVelocityLevel(null, 3)
+      changeTimeLevel(null, '5')
+      break;
+    case 'm':
+      changeVelocityLevel(null, 1)
+      changeTimeLevel(null, '30')
+      break;
+    case 'h':
+      changeVelocityLevel(null, 2)
+      changeTimeLevel(null, '10')
+      break;
+  
+    default:
+      return
+  }
+
+  modal.classList.add('hide');
+  start_sfx.currentTime = 0
+  start_sfx.play()
+});
+
+
 // Event Listeners
 start.addEventListener('click', startTime)
 retry.addEventListener('click', goMenu)
 holes.forEach(hole => hole.addEventListener('mousedown', up));
 holes.forEach(hole => hole.addEventListener('touchstart', up));
 nameInput.addEventListener('keyup', enterName);
-velocityLevelDOM.addEventListener('click', changevelocityLevel)
-timeLevelDOM.addEventListener('click', changetimeLevel)
-volumeLevelDOM.addEventListener('click', changevolumeLevel)
+velocityLevelDOM.addEventListener('click', changeVelocityLevel)
+timeLevelDOM.addEventListener('click', changeTimeLevel)
+volumeLevelDOM.addEventListener('click', changeVolumeLevel)
 
 // Functions
 function up(e) {
@@ -209,9 +240,9 @@ function getTime() {
   }
 }
 
-function changevelocityLevel() {
+function changeVelocityLevel(e, n) {
   const element = velocityLevelDOM.children[1]
-  const currentLevel = +element.textContent
+  const currentLevel = n || +element.textContent
   if(volume_level) {
     start_sfx.currentTime = 0.125;
     start_sfx.play();
@@ -241,9 +272,9 @@ function changevelocityLevel() {
       break;
   }
 }
-function changetimeLevel() {
+function changeTimeLevel(e, n) {
   const element = timeLevelDOM.children[1]
-  const currentLevel = element.textContent
+  const currentLevel = n || element.textContent
   if(volume_level) {
     start_sfx.currentTime = 0.125;
     start_sfx.play();
@@ -273,7 +304,7 @@ function changetimeLevel() {
       break;
   }
 }
-function changevolumeLevel() {
+function changeVolumeLevel() {
   const element = volumeLevelDOM.children[1]
   const currentLevel = element.textContent
   switch (currentLevel) {
