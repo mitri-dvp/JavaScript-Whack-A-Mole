@@ -30,7 +30,7 @@
   text-transform: uppercase;
   gap: 1.5rem;
   z-index: 2;
-  display: none;
+  /* display: none; */
 }
 .modal.hide {
   display: none;
